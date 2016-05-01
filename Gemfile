@@ -36,12 +36,21 @@ gem 'pundit'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-  gem 'rspec-rails'
-  gem 'pry'
+
+  gem "rspec-rails"
+  gem "capybara"
+  gem "launchy"
+  gem "rack_session_access"
+  gem "selenium-webdriver"
+  gem "binding_of_caller"
+  gem "factory_girl_rails"
+  gem "simplecov"
+  gem "database_cleaner"
+  gem "pry"
+  gem "guard-rspec", require: false
+  gem "thin"
 end
 
 group :development do
@@ -49,13 +58,4 @@ group :development do
   gem 'spring'
   gem 'spring-commands-rspec'
   gem 'faker'
-  gem 'factory_girl_rails'
-
-end
-
-group :test do
-  gem 'selenium-webdriver'
-  gem 'capybara'
-  gem 'database_cleaner'
-  gem 'launchy'
 end
