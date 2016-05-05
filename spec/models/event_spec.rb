@@ -1,20 +1,33 @@
 require 'rails_helper'
 
 RSpec.describe Event, :type => :model do
-
-  it 'has a location' do
-    Event.first.location = Location.first
-    expect(Event.first.location).to eq(Location.first)
+  before(:each) do
+    @event = Event.first
+    @user = User.first
+    @user2 = User.second
+    @comment = Comment.first
   end
 
-  it 'has many users' do
-    Event.first.attendees << User.first, User.second
-    expect(Event.first.attendees).to include(User.first, User.second)
+  it 'has a location' do
+    @event.location = Location.first
+    expect(@event.location).to eq(Location.first)
+  end
+
+  it 'has many attendess' do
+    @event.attendees << @user
+    @event.attendees << @user2
+    expect(@event.attendees).to include(@user)
+    expect(@event.attendees).to include(@user2)
+  end
+
+  it 'has an event organizer' do
+    @event.organizer = @user
+    expect(@event.organizer).to eq(@user)
   end
 
   it 'has many comments' do
-    Event.first.comments << Comment.first
-    expect(Event.first.comments).to include(Comment.first)
+    @event.comments << Comment.first
+    expect(@event.comments).to include(Comment.first)
   end
 
 end
