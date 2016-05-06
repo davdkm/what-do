@@ -27,6 +27,7 @@ gem 'devise'
 gem 'pundit'
 gem 'omniauth'
 gem 'omniauth-github'
+gem 'dotenv-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -40,7 +41,6 @@ gem 'omniauth-github'
 group :development, :test do
   # Access an IRB console on exception pages or by using <%= console %> in views
 
-  gem 'dotenv-rails'
   gem "rspec-rails"
   gem "capybara"
   gem "launchy"
