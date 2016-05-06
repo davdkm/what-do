@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160505023644) do
+ActiveRecord::Schema.define(version: 20160506002507) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "content"
@@ -31,6 +31,9 @@ ActiveRecord::Schema.define(version: 20160505023644) do
 
   create_table "events", force: :cascade do |t|
     t.string   "name"
+    t.text     "description"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.integer  "location_id"
     t.integer  "user_id"
     t.datetime "created_at",  null: false
@@ -42,9 +45,10 @@ ActiveRecord::Schema.define(version: 20160505023644) do
 
   create_table "locations", force: :cascade do |t|
     t.string   "name"
+    t.text     "description"
     t.integer  "event_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   add_index "locations", ["event_id"], name: "index_locations_on_event_id"
@@ -61,6 +65,8 @@ ActiveRecord::Schema.define(version: 20160505023644) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

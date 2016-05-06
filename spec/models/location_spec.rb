@@ -11,9 +11,9 @@ RSpec.describe Location, type: :model do
     expect(@location.name).to eq('Times Square')
   end
 
-  it "has can have an event" do
+  it "can have an event" do
     @event.location = @location
-    expect(@location.event).to be_a(Event)
+    expect(@location.events.first).to be_a(Event)
   end
 
 end
