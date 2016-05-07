@@ -1,8 +1,17 @@
 <div class="right-info">
-  Event Details:
-  <%= event.name %><br>
-  Location: <%= event.location.name %><br>
-  From: <%= event.start_time %> Until: <%= event.end_time %>
-  Description: <%= event.description %><br>
-
+  <h4>
+    <strong><%= link_to event.name, event_path(event) %></strong>
+  </h4>
+  <p>
+    <strong>Location:</strong> <%= event.location.name %>
+  </p>
+  <p>
+    <strong>Begins:</strong> <%= event.readable_start_time %>
+  </p>
+  <p>
+    <strong>Ends:</strong> <%= event.readable_end_time %>
+  </p>
+  <p>
+    <strong>Description:</strong> <%= event.description %>
+  </p>
 </div>
