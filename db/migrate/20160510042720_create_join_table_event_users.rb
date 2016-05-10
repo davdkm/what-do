@@ -1,4 +1,4 @@
-class CreateJoinTableEventUser < ActiveRecord::Migration
+class CreateJoinTableEventUsers < ActiveRecord::Migration
   def change
     create_table :event_users do |t|
       t.integer :event_id

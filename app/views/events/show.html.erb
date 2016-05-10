@@ -1,0 +1,19 @@
+<%= render @event %>
+
+<div class="right-info">
+  <h4><%= 'Attender'.pluralize(@attenders) %> of this Event:</h4>
+  <p>
+    <% @attenders.each do |attender| %>
+      <%= link_to attender.name, user_path(attender) %>
+    <% end %>
+  </p>
+  <p>
+    <% if user_signed_in? %>
+      <%= form_tag new_event_path, method: 'POST' do %>
+        <%= hidden_field_tag :user_id, current_user.id %>
+        <%= hidden_field_tag :event_id, @event.id %>
+        <%= submit_tag "Go to this event" %>
+      <% end %>
+    <% end %>
+  </p>
+</div>
