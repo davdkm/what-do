@@ -10,9 +10,11 @@ RSpec.describe User, type: :model do
     expect(@user.name).to eq('Nathan')
   end
 
-  it "has many events" do
-    @user.events.create
-    expect(@user.events.count).to eq(1)
+  it "can have many events to go to" do
+    @user.attending_events.create
+    @user.attending_events.create
+
+    expect(@user.attending_events.count).to eq(2)
   end
 
   it "has many comments" do
