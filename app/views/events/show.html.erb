@@ -3,11 +3,11 @@
 <div class="right-info">
   <h4><%= 'Attender'.pluralize(@users.count) %> of this Event:</h4>
   <p>
-    <% @users.each do |attender| %>
+    <% @users.map do |attender| %>
       <% if attender.name? %>
-        <%= link_to attender.name, user_path(attender) %>
+        <%= link_to attender.name, user_path(attender), class: "button" %>
       <% else %>
-        <%= link_to attender.email, user_path(attender) %>
+        <%= link_to attender.email, user_path(attender), class: "button" %>
       <% end %>
     <% end %>
   </p>
@@ -15,8 +15,8 @@
       <%= form_tag schedules_path, method: 'POST' do %>
         <%= hidden_field_tag :user_id, current_user.id %>
         <%= hidden_field_tag :event_id, @event.id %>
-        <%= submit_tag "Go to this event" %>
+        <%= submit_tag "Go to this event", class: 'button confirm' %>
       <% end %>
-      <%=  button_to "Not going anymore", {:controller => :schedules, :action => 'destroy', :user_id => current_user.id }, :event_id => @event.id, :method => :delete unless @users.nil? %>
+      <%=  button_to "Not going anymore", {:controller => :schedules, :action => 'destroy', :id => @event.id}, :method => :delete, class: 'button cancel' unless @users.nil? %>
   </p>
 </div>

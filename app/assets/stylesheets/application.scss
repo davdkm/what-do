@@ -58,3 +58,28 @@
      height: 290px;
      text-align: left;
  }
+
+ .button {
+    background-color: #555555;
+    border: none;
+    color: white;
+    padding: 10px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+.button:hover {
+    background-color: #606060;
+    color: white;
+}
+
+.confirm {
+  background-color: #4CAF50;
+}
+
+.cancel {
+  background-color: #F44336;
+}
