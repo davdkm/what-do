@@ -4,8 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:github]
 
-  has_many :event_users
-  has_many :attending_events, through: :event_users, source: :event
+  has_many :schedules
+  has_many :attending_events, through: :schedules, source: :event
   has_many :locations, through: :events
 
   has_many :comments

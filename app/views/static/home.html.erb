@@ -7,5 +7,5 @@
   <%= user_signed_in? ? "a user is signed in" : "No user" %>
 </p>
 <p>
-  <%= link_to 'Sign in with GitHub', user_github_omniauth_authorize_path %>
+  <%= link_to 'Sign in with GitHub', user_github_omniauth_authorize_path if !user_signed_in? %>
 </p>
