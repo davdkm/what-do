@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:github]
 
   has_many :schedules
-  has_many :attending_events, through: :schedules, source: :event
+  has_many :events, through: :schedules#, source: :event
   has_many :locations, through: :events
 
   has_many :comments
