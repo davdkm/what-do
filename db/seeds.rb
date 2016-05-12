@@ -26,16 +26,16 @@
 end
 
 counter = 1
-# Event.all.each do |event|
-#   location = Location.find(counter)
-#   event.location = location
-#   event.save
-#   location.save
-#   counter += 1
-# end
-Location.all.each do |location|
-  event = Event.find(counter)
+
+Event.all.each do |event|
+  user = User.find(counter)
+  comment = Comment.find(counter)
+  location = Location.find(counter)
   location.events << event
   location.save
+  event.schedules.create(user: User.find(counter))
+  comment.user = user
+  comment.event = event
+  comment.save
   counter += 1
 end

@@ -9,7 +9,9 @@
   <ul>
     <% if @comments.present? %>
       <% @comments.each do |comment| %>
-        <li><%= comment.content %> : by <%= link_to comment.user.name, user_path(comment.user) %></li>
+        <li><%= comment.content %> : by <%= link_to comment.user.name, user_path(comment.user) %>
+          <%= link_to 'Edit', edit_user_comment_path(comment.user, comment), class: 'button' if policy(comment).update? %>
+          <%= button_to "X", [comment.user, comment], :method => :delete, class: 'button cancel' if policy(comment).update? %></li>
       <% end %>
     <% else %>
       <li>

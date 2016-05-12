@@ -1,0 +1,7 @@
+<div class="info">
+  <%= form_for [@comment.user, @comment] do |f| %>
+    <%= f.text_area :content %>
+    <%= f.submit 'Make this change', :class => 'button confirm' %>
+    <% end %>
+<%= button_to "X", [@comment.user, @comment], :method => :delete, class: 'button cancel' %></li>
+</div>

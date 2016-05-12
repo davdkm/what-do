@@ -1,5 +1,9 @@
 class CommentsController < ApplicationController
 
+  def show
+    @comment = Comment.find_by(id: params[:id])
+  end
+
   def create
     @user = User.find_by(id: params[:user_id])
     @comment = @user.comments.new(comment_params)
@@ -8,6 +12,25 @@ class CommentsController < ApplicationController
     else
       redirect_to request.referer, flash: {alert: 'Could not post comment.'}
     end
+  end
+
+  def edit
+    @comment = Comment.find_by(id: params[:id])
+    @user = @comment.user
+  end
+
+  def update
+    @comment = Comment.find_by(id: params[:id])
+    authorize @comment
+    @comment.update(comment_params)
+    redirect_to request.referer, flash: {notice: 'Comment was updated.'}
+  end
+
+  def destroy
+    @comment = Comment.find_by(id: params[:id])
+    authorize @comment
+    @comment.delete
+    redirect_to request.referer, flash: {notice: 'Comment was removed.'}
   end
 
   private

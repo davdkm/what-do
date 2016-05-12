@@ -1,0 +1,10 @@
+<div class="right-info">
+  <h3><%= @comment.user.name %> said:</h3>
+  <p>
+    <%= @comment.content %>
+  </p>
+  <p>
+    <%= link_to 'Edit', edit_user_comment_path(id: @comment.id, user_id: @comment.user.id), class: 'button' if policy(@comment).update? %>
+    <%= button_to "X", [@comment.user, @comment], :method => :delete, class: 'button cancel' if policy(@comment).update? %>
+  </p>
+</div>
