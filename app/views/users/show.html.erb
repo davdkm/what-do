@@ -1,0 +1,21 @@
+<%= render 'show_user' %>
+
+<div class="right-info-comments">
+  <h4>Make a new comment:</h4>
+  <%= form_for [@user, @new_comment] do |f| %>
+    <%= f.text_field :content %>
+    <%= f.submit "Comment!", class: 'button' %>
+  <% end %>
+  <h4>Comments:</h4>
+  <ul>
+    <% if @comments.present? %>
+      <% @comments.each do |comment| %>
+        <li><%= comment.content %></li>
+      <% end %>
+    <% else %>
+      <li>
+        No comments yet!
+      </li>
+    <% end %>
+  </ul>
+</div>

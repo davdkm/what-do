@@ -1,5 +1,5 @@
 <% if current_user.present? %>
-  <li><%= link_to "Hello, #{current_user.email}!", user_path(current_user) %></li>
+  <li><%= link_to "Hello, #{current_user.name}!", user_path(current_user) %></li>
   <li><%= link_to 'Events', events_path %></li>
   <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
 <% else %>
