@@ -32,3 +32,14 @@
   -user can edit or destroy their own events/comments
   -only admins can edit and destroy events/comments/locations of other users
   -users can join events as attendees
+
+4. Add roles for users and admins
+  -users can edit their names
+  -users can create events and comments
+  -users can delete their own events and comments
+  -users cannot delete or edit other users comments, events, and names
+
+  -moderators can do everything a user can do
+  -moderators can also edit and delete comments on events given permission
+  
+  -admin can do everything
