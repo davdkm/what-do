@@ -4,9 +4,9 @@ class CommentsController < ApplicationController
     @user = User.find_by(id: params[:user_id])
     @comment = @user.comments.new(comment_params)
     if @comment.save
-      redirect_to user_path(@user), flash: {notice: 'Thanks for commenting.'}
+      redirect_to request.referer, flash: {notice: 'Thanks for commenting.'}
     else
-      redirect_to user_path(@user), flash: {alert: 'Could not post comment.'}
+      redirect_to request.referer, flash: {alert: 'Could not post comment.'}
     end
   end
 

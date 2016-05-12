@@ -9,5 +9,6 @@ class UsersController < ApplicationController
     @new_comment = @user.comments.new
     @comments = @user.comments
     @events = @user.events
+    session[:return_to] ||= request.referer
   end
 end

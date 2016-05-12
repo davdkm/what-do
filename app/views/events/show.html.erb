@@ -20,3 +20,5 @@
       <%=  button_to "Not going anymore", {:controller => :schedules, :action => 'destroy', :id => @event.id}, :method => :delete, class: 'button cancel' unless @users.nil? %>
   </p>
 </div>
+
+<%= render 'comments/comments' %>
