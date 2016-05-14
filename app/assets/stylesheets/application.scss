@@ -36,10 +36,11 @@
      margin: 10px;
  }
 
- .left-pic {
+ .center-card {
      float: left;
      position: relative;
      margin: 5px;
+     padding: 20px;
  }
 
  .right-info {
@@ -65,11 +66,6 @@
      border-radius: 7px;
  }
 
- .info {
-     height: 290px;
-     text-align: left;
- }
-
  .button {
     background-color: #555555;
     border: none;
@@ -93,4 +89,9 @@
 
 .cancel {
   background-color: #F44336;
+}
+
+.form {
+  text-align: left;
+  height: auto;
 }

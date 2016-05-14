@@ -1,0 +1,16 @@
+<div class="right-info form">
+  <h3>Create a new event</h3>
+  <%= form_for @event do |f| %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %><br>
+    <%= f.label :location %><br>
+    <%= f.text_field :location %><br>
+    <%= f.label :start_time %><br>
+    <%= f.datetime_select :start_time, :ampm => true, :min => DateTime.now %><br>
+    <%= f.label :end_time %><br>
+    <%= f.datetime_select :end_time, :ampm => true %><br>
+    <%= f.label :description %><br>
+    <%= f.text_area :description %><br>
+    <%= f.submit 'Create this event', :class => 'button confirm' %>
+  <% end %>
+</div>

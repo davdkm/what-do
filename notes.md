@@ -1,37 +1,36 @@
 1. Models:
-  -Event has a location
+  -Event has many tags
   -Event has many users
   -Event has many comments through users
 
   -User has many events
   -User has many comments
-  -User has many locations through events or comments
 
-  -Location belongs to an event
-  -location has many comments
-  -location has many users through comments
+  -Tag has many tags
 
   -Comments belong to a user
   -comment belongs to a event
-  -comment belongs to a location
 
 2. Views:
   -user home page shows events last three comments
     -shows users' events
     -shows events user is attending
   -event page shows attendees and organizer
-    -shows event location, time, and details
+    -shows event tags, time, and details
     -shows comments about events
-  -location page shows details and events held at the location
-    -shows comments about the location
+  -tag page shows events
+    -shows comments about the tag
 
 3. Features:
   -Users can create an event
-  -User can create a location through event
-  -user can comment on an existing event or location
+  -Users can assign a tag to an event
+  -User can create a tag through event
+  -user can comment on an existing event
   -user can edit or destroy their own events/comments
-  -only admins can edit and destroy events/comments/locations of other users
+  -only admins can edit and destroy events/comments/tags of other users
   -users can join events as attendees
+
+
 
 4. Add roles for users and admins
   -users can edit their names
@@ -41,5 +40,5 @@
 
   -moderators can do everything a user can do
   -moderators can also edit and delete comments on events given permission
-  
+
   -admin can do everything

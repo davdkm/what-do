@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :tags
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   resources :users do
@@ -6,7 +7,6 @@ Rails.application.routes.draw do
   end
   resources :schedules
   resources :events
-  resources :locations
 
   root 'static#home'
   # The priority is based upon order of creation: first created -> highest priority.

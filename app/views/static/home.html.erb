@@ -1,11 +1,15 @@
-<h1>Wat Do?!</h1>
+<div class="center-card">
 
-<p>
-  Welcome <%= current_user.email if current_user %>
-</p>
-<p>
-  <%= user_signed_in? ? "a user is signed in" : "No user" %>
-</p>
-<p>
-  <%= link_to 'Sign in with GitHub', user_github_omniauth_authorize_path if !user_signed_in? %>
-</p>
+  <h1>Wat Do?!</h1>
+
+  <p>
+    <%= "Welcome, #{current_user.email}" if current_user %>
+  </p>
+  <p>
+    <%= link_to 'Sign in with GitHub', user_github_omniauth_authorize_path if !user_signed_in? %>
+  </p>
+
+  <h4>Here's what people are doing:</h4>
+
+  <%= render @events %>
+</div>

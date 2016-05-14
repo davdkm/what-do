@@ -12,12 +12,14 @@
     <% end %>
   </p>
   <p>
+    <% if user_signed_in? %>
       <%= form_tag schedules_path, method: 'POST' do %>
         <%= hidden_field_tag :user_id, current_user.id %>
         <%= hidden_field_tag :event_id, @event.id %>
         <%= submit_tag "Go to this event", class: 'button confirm' %>
       <% end %>
       <%=  button_to "Not going anymore", {:controller => :schedules, :action => 'destroy', :id => @event.id}, :method => :delete, class: 'button cancel' unless @users.nil? %>
+    <% end %>
   </p>
 </div>
 
