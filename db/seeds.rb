@@ -9,18 +9,18 @@
   event_start_time = Faker::Time.between(DateTime.now, DateTime.now + 7)
   Event.create(
     name: Faker::Company.catch_phrase,
+    location: Faker::Address.street_name,
     description: Faker::Hipster.paragraph(2, false, 2),
     start_time: event_start_time,
     end_time: (event_start_time + rand(3600..7200))
     )
-  Location.create(
-    name: Faker::Address.street_name,
-    description: Faker::Hipster.paragraph(2, false, 2)
+  Tag.create(
+    name: Faker::Hipster.word
     )
   User.create(
     name: Faker::Internet.user_name,
     email: Faker::Internet.email,
-    password: Faker::Internet.password(8),
+    password: Faker::Internet.password(8)
     )
   Comment.create(content: Faker::Hipster.sentence)
 end
@@ -30,9 +30,9 @@ counter = 1
 Event.all.each do |event|
   user = User.find(counter)
   comment = Comment.find(counter)
-  location = Location.find(counter)
-  location.events << event
-  location.save
+  tag = Tag.find(counter)
+  tag.events << event
+  tag.save
   event.schedules.create(user: User.find(counter))
   comment.user = user
   comment.event = event

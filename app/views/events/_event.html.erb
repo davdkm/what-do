@@ -3,7 +3,7 @@
     <strong><%= link_to event.name, event_path(event) %></strong>
   </h4>
   <p>
-    <strong>Location:</strong> <%= event.location.name %>
+    <strong>Location:</strong> <%= event.location %>
   </p>
   <p>
     <strong>Begins:</strong> <%= event.readable_start_time %>
@@ -13,5 +13,8 @@
   </p>
   <p>
     <strong>Description:</strong> <%= event.description %>
+  </p>
+  <p>
+    <strong><%= 'Tag'.pluralize(event.tags.count) %>:</strong> <%= event.tags.map(&:name).join(', ') %>
   </p>
 </div>
