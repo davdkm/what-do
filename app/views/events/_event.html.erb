@@ -15,6 +15,6 @@
     <strong>Description:</strong> <%= event.description %>
   </p>
   <p>
-    <strong><%= 'Tag'.pluralize(event.tags.count) %>:</strong> <%= event.tags.map(&:name).join(', ') %>
+    <%= link_to 'Edit this event', edit_event_path(event), class: 'button' %>
   </p>
 </div>

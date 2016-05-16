@@ -6,7 +6,6 @@ class CreateEvents < ActiveRecord::Migration
       t.text :description
       t.datetime :start_time
       t.datetime :end_time
-      t.references :tag, index: true
       t.references :user, index: true
 
       t.timestamps null: false

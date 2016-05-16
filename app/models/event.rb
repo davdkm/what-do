@@ -5,7 +5,8 @@ class Event < ActiveRecord::Base
   has_many :comments
   has_many :event_tags
   has_many :tags, through: :event_tags
-  
+  accepts_nested_attributes_for :tags
+
   def self.sort_by_start_time
     self.order('start_time')
   end
@@ -16,6 +17,13 @@ class Event < ActiveRecord::Base
 
   def readable_end_time
     self.end_time.localtime.strftime("%A, %d %b %Y %l:%M %p")
+  end
+
+  def tag_attributes=(tag_attributes)
+    tag_attributes.values.each do |tag_attribute|
+      tag = Tag.find_or_create_by(tag_attribute)
+      self.tags << tag
+    end
   end
 
 end

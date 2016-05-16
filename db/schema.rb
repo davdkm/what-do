@@ -35,13 +35,11 @@ ActiveRecord::Schema.define(version: 20160514025510) do
     t.text     "description"
     t.datetime "start_time"
     t.datetime "end_time"
-    t.integer  "tag_id"
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  add_index "events", ["tag_id"], name: "index_events_on_tag_id"
   add_index "events", ["user_id"], name: "index_events_on_user_id"
 
   create_table "schedules", force: :cascade do |t|

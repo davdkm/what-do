@@ -10,6 +10,8 @@ class EventsController < ApplicationController
     @user = current_user
     @new_comment = @user.comments.new if @user
     @comments = @event.comments
+    @tags = @event.tags
+    @event_tags = @event.tags
   end
 
   def new
@@ -17,8 +19,8 @@ class EventsController < ApplicationController
   end
 
   def create
-    binding.pry
     @event = current_user.events.build(event_params)
+    @event.organizer = current_user
     authorize @event
     if @event.save
       redirect_to event_path(@event)
@@ -27,9 +29,22 @@ class EventsController < ApplicationController
     end
   end
 
+  def edit
+    @event = Event.find(params[:id])
+    @users = @event.users
+    @user = current_user
+  end
+
+  def update
+    @event = Event.find(params[:id])
+    authorize @event
+    @event.update(event_params)
+    redirect_to event_path(@event)
+  end
+
   private
     def event_params
-      params.require(:event).permit(:name, :description, :location, :start_time, :end_time)
+      params.require(:event).permit(:name, :description, :location, :start_time, :end_time, tag_ids: [], tags_attributes: [:name])
     end
 
 end

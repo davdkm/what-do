@@ -1,0 +1,8 @@
+<div class="right-info-relative">
+  <h4><%= 'Tag'.pluralize(@tags.count) %>:</h4>
+  <p>
+    <% @tags.map do |tag| %>
+      <%= link_to tag.name, user_path(tag), class: "button" %>
+    <% end %>
+  </p>
+</div>
