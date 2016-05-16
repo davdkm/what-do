@@ -1,26 +1,22 @@
 <div class="right-info-relative">
-  <% if user_signed_in? %>
-    <h4>Make a new comment:</h4>
-    <%= form_for [@user, @new_comment] do |f| %>
-      <%= f.text_field :content %>
-      <%= f.hidden_field :event_id, :value => @event.id if @event %>
-      <%= f.submit "Comment!", class: 'button' %>
-    <% end %>
-  <% end %>
-    <h4>Comments:</h4>
-  <ul>
-    <% if @comments.present? %>
-      <% @comments.each do |comment| %>
+  <%= render 'comments/new_comment' if @event %>
+<h4>Comments:</h4>
+<ul>
+  <% if @comments.present? %>
+    <% @comments.each do |comment| %>
+      <% if comment.persisted? %>
         <li><%= comment.content %> : by <%= link_to comment.user.name, user_path(comment.user) %>
           <% if user_signed_in? %>
             <%= link_to 'Edit', edit_user_comment_path(comment.user, comment), class: 'button' if policy(comment).update? %>
             <%= button_to "X", [comment.user, comment], :method => :delete, class: 'button cancel' if policy(comment).update? %></li>
           <% end %>
       <% end %>
-    <% else %>
-      <li>
-        No comments yet!
-      </li>
     <% end %>
-  </ul>
+  <% else %>
+    <li>
+      No comments yet!
+    </li>
+  <% end %>
+</ul>
+
 </div>

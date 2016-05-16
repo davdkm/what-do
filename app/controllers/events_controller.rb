@@ -7,8 +7,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @users = @event.users
-    @user = current_user
-    @new_comment = @user.comments.new if @user
+    @new_comment = current_user.comments.new if
     @comments = @event.comments
     @tags = @event.tags
     @event_tags = @event.tags

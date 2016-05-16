@@ -1,3 +1,4 @@
 <%= render 'show_user' %>
 
+<%= render 'comments/_new_comment' if user_signed_in? && @event.present? %>
 <%= render 'comments/comments' %>

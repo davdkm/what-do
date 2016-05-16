@@ -32,10 +32,12 @@ Event.all.each do |event|
   comment = Comment.find(counter)
   tag = Tag.find(counter)
   tag.events << event
-  tag.save
-  event.schedules.create(user: User.find(counter))
+  event.schedules.create(user: user)
+  event.organizer = user
   comment.user = user
   comment.event = event
+  tag.save
   comment.save
+  event.save
   counter += 1
 end
