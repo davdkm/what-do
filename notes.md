@@ -1,5 +1,5 @@
 Main objectives:
-1. DONE - ruby frameork
+1. DONE - ruby framework
 2. DONE - Your models must include a has_many, a belongs_to, and a has_many :through relationship - DONE
 3. DONE - The join model must also store an additional attribute describing the relationship -DONE(Comment model)
 4. WIP - Your models should include reasonable validations for the simple attributes. - WIP

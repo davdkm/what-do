@@ -8,4 +8,8 @@ class EventPolicy < ApplicationPolicy
     user.admin? || user.moderator? || record.try(:organizer) == user
   end
 
+  def destroy?
+    user.admin? || user.moderator? || record.try(:organizer) == user
+  end
+
 end

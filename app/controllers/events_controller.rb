@@ -44,6 +44,16 @@ class EventsController < ApplicationController
     end
   end
 
+  def destroy
+    @event = Event.find(params[:id])
+    authorize @event
+    if @event.delete
+      redirect_to events_path, flash: {message: 'Event was succussfelly removed.'}
+    else
+      render :show
+    end
+  end
+
   private
     def event_params
       params.require(:event).permit(:name, :description, :location, :start_time, :end_time, tag_ids: [], tags_attributes: [:name])
