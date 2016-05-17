@@ -7,6 +7,8 @@ class Event < ActiveRecord::Base
   has_many :tags, through: :event_tags
   accepts_nested_attributes_for :tags
 
+  validates_presence_of :description, :name, :location, :start_time, :end_time
+
   def self.sort_by_start_time
     self.order('start_time')
   end
@@ -19,11 +21,12 @@ class Event < ActiveRecord::Base
     self.end_time.localtime.strftime("%A, %d %b %Y %l:%M %p")
   end
 
-  def tag_attributes=(tag_attributes)
+  def tags_attributes=(tag_attributes)
     tag_attributes.values.each do |tag_attribute|
-      tag = Tag.find_or_create_by(tag_attribute)
-      self.tags << tag
+      tag = Tag.find_or_create_by(tag_attribute) if tag_attribute[:name].present?
+      self.tags << tag if tag
     end
   end
+
 
 end

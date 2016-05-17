@@ -41,3 +41,5 @@ Event.all.each do |event|
   event.save
   counter += 1
 end
+
+User.create(name: 'admin', email: 'admin@example.com', password: 'password', role: 2)
