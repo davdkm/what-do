@@ -18,7 +18,7 @@
   <% end %>
   </p>
   <%= f.submit 'Submit', :class => 'button confirm' %>
-  <p>
-    <%= button_to "Cancel this Event", event_path(@event), :method => :delete, class: 'button cancel' if policy(@event).destroy? %></li>
-  </p>
 <% end %>
+<p>
+  <%= button_to "Cancel this Event", event_path(@event), :method => :delete, class: 'button cancel' if policy(@event).destroy? && @event.persisted? %></li>
+</p>

@@ -8,6 +8,7 @@ class Event < ActiveRecord::Base
   accepts_nested_attributes_for :tags
 
   validates_presence_of :description, :name, :location, :start_time, :end_time
+  validate :event_cannot_start_in_the_past, :event_cannot_end_before_start_time
 
   def self.sort_by_start_time
     self.order('start_time')
@@ -28,5 +29,16 @@ class Event < ActiveRecord::Base
     end
   end
 
+  def event_cannot_start_in_the_past
+    if self.start_time.present? && self.start_time < DateTime.now
+      errors.add(:start_time, "Event cannot start in the past")
+    end
+  end
+
+  def event_cannot_end_before_start_time
+    if self.end_time.present? && self.start_time.present? && self.end_time < self.start_time
+      errors.add(:start_time, "Event cannot end before it starts.")
+    end
+  end
 
 end

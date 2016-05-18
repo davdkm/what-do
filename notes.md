@@ -2,13 +2,13 @@ Main objectives:
 1. DONE - ruby framework
 2. DONE - Your models must include a has_many, a belongs_to, and a has_many :through relationship - DONE
 3. DONE - The join model must also store an additional attribute describing the relationship -DONE(Comment model)
-4. WIP - Your models should include reasonable validations for the simple attributes. - WIP
-5. TODO - You must include at least one class level ActiveRecord scope methods. - TODO
+4. DONE - Your models should include reasonable validations for the simple attributes. - DONE
+5. WIP - You must include at least one class level ActiveRecord scope methods. - TODO (Upcoming events?)
 6. DONE - You must include a nested form that writes to an associated model through a custom attribute writer. - DONE(Tags)
 7. DONE - Your application must provide a standard user authentication, including signup, login, logout, and passwords. - DONE (Devise)
 8. WIP - Your authentication system should allow login from some other service. Facebook, twitter, foursquare, github, etc...- WIP(github)
 9. DONE - You must make use of a nested resource with the appropriate RESTful URLs. - DONE(Comments)
-10. WIP - Your forms should correctly display validation errors - WIP
+10. DONE - Your forms should correctly display validation errors - WIP
 11. WIP - Your application must be, within reason, a DRY (Do-Not-Repeat-Yourself) rails app. - WIP
 
 1. Models:
