@@ -36,11 +36,12 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
-    authorize @event
-    if @event.update(event_params)
-      redirect_to event_path(@event)
-    else
-      render :edit
+    if authorize @event
+      if @event.update(event_params)
+        redirect_to event_path(@event)
+      else
+        render :edit
+      end
     end
   end
 
