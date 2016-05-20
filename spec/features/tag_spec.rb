@@ -1,40 +1,26 @@
-describe 'Feature Test: Event', :type => :feature do
+require 'rails_helper'
 
-  describe "Users List" do
+describe 'Feature Test: Tag', :type => :feature do
+
+  describe "Tag List" do
     before(:each) do
       @event = Event.first
-      @event.users << @user
+      @tags = Tag.all
+      @event.tags << @tags
+      @user = existing_user_login('testaccount@email.com', 'password')
+      @event.organizer = @user
       visit event_path(@event)
     end
 
     it "Lists Event name" do
       expect(page).to have_content @event.name
     end
-    it "lists all of the users in that event" do
-      @users.each do |user|
-        expect(page).to have_content user.title
-        expect(page).to have_content "$#{user.price.to_f/100}"
+
+    it "lists all of the tags in that event" do
+      @tags.each do |tag|
+        expect(page).to have_content tag.name
       end
     end
 
-    context "not logged in" do
-
-      it 'does not display "Add To Cart" button' do
-        expect(page).to_not have_content "Add To Cart"
-      end
-
-    end
-
-    context "logged in" do
-      before(:each) do
-        @user = User.first
-        login_as(@user, scope: :user)
-      end
-
-      it 'does display "Add To Cart" button' do
-        visit event_path(@event)
-        expect(page).to have_selector("input[type=submit][value='Add to Cart']")
-      end
-    end
   end
 end

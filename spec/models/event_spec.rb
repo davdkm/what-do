@@ -9,15 +9,15 @@ RSpec.describe Event, :type => :model do
   end
 
   it 'has a location' do
-    @event.location = Location.first
-    expect(@event.location).to eq(Location.first)
+    @event.location = 'Pershing Square'
+    expect(@event.location).to eq('Pershing Square')
   end
 
-  it 'has many attenders' do
-    @event.attenders << @user
-    @event.attenders << @user2
-    expect(@event.attenders).to include(@user)
-    expect(@event.attenders).to include(@user2)
+  it 'has many users' do
+    @event.users << @user
+    @event.users << @user2
+    expect(@event.users).to include(@user)
+    expect(@event.users).to include(@user2)
   end
 
   it 'has an event organizer' do

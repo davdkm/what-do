@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   has_many :comments
 
   validates :name, presence: true
+  validates :email, uniqueness: true
+
 
   enum role: [:normal, :moderator, :admin]
 

@@ -6,7 +6,7 @@ Main objectives:
 5. WIP - You must include at least one class level ActiveRecord scope methods. - TODO (Upcoming events?)
 6. DONE - You must include a nested form that writes to an associated model through a custom attribute writer. - DONE(Tags)
 7. DONE - Your application must provide a standard user authentication, including signup, login, logout, and passwords. - DONE (Devise)
-8. WIP - Your authentication system should allow login from some other service. Facebook, twitter, foursquare, github, etc...- WIP(github)
+8. DONE - Your authentication system should allow login from some other service. Facebook, twitter, foursquare, github, etc...- DONE(github)
 9. DONE - You must make use of a nested resource with the appropriate RESTful URLs. - DONE(Comments)
 10. DONE - Your forms should correctly display validation errors - WIP
 11. WIP - Your application must be, within reason, a DRY (Do-Not-Repeat-Yourself) rails app. - WIP

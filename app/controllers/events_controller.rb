@@ -7,7 +7,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @users = @event.users
-    @new_comment = current_user.comments.new if
+    @new_comment = current_user.comments.new if user_signed_in?
     @comments = @event.comments
     @tags = @event.tags
     @event_tags = @event.tags

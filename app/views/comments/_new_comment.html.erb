@@ -1,6 +1,9 @@
-<h4>Make a new comment:</h4>
-<%= form_for [current_user, @new_comment] do |f| %>
-  <%= f.text_field :content %>
-  <%= f.hidden_field :event_id, :value => @event.id if @event %>
-  <%= f.submit "Comment!", class: 'button' %>
+<% if user_signed_in? %>
+  <h4>Make a new comment:</h4>
+  <%= form_for [current_user, @new_comment] do |f| %>
+    <%= f.label :content %>
+    <%= f.text_field :content %>
+    <%= f.hidden_field :event_id, :value => @event.id if @event %>
+    <%= f.submit "Comment!", class: 'button' %>
+  <% end %>
 <% end %>
