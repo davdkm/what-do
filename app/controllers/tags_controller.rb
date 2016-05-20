@@ -1,5 +1,14 @@
 class TagsController < ApplicationController
 
+    def index
+      @tags = Tag.all
+    end
+
+    def show
+      @tag = Tag.find_by(id: params[:id])
+      @events = @tag.events
+    end
+
     def create
       @event = Event.find_by(id: params[:tag][:event_id])
       @tag = Tag.find_or_create_by(name: tag_params[:name])

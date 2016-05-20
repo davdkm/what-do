@@ -2,15 +2,13 @@
 
 <div class="right-info">
   <h4><%= 'Attender'.pluralize(@users.count) %> of this Event:</h4>
+
   <p>
     <% @users.map do |attender| %>
-      <% if attender.name? %>
-        <%= link_to attender.name, user_path(attender), class: "button" %>
-      <% else %>
-        <%= link_to attender.email, user_path(attender), class: "button" %>
-      <% end %>
+      <%= link_to (attender.name || attender.email), user_path(attender), class: "button" %>
     <% end %>
   </p>
+
   <p>
     <% if user_signed_in? %>
       <%= form_tag schedules_path, method: 'POST' do %>
