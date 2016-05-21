@@ -10,6 +10,14 @@ class Event < ActiveRecord::Base
   validates_presence_of :description, :name, :location, :start_time, :end_time
   validate :event_cannot_start_in_the_past, :event_cannot_end_before_start_time
 
+  def start_time
+    super.in_time_zone(time_zone)
+  end
+
+  def end_time
+    super.in_time_zone(time_zone)
+  end
+
   def self.sort_by_start_time
     self.order('start_time')
   end

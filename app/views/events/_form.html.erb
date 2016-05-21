@@ -4,6 +4,7 @@
   <%= f.label :location %><br>
   <%= f.text_field :location %><br>
   <%= f.label :start_time %><br>
+  <%= f.time_zone_select('time_zone', ActiveSupport::TimeZone.us_zones, default: "Pacific Time (US & Canada)")  %><br>
   <%= f.datetime_select :start_time, :ampm => true, :min => DateTime.now, :default => DateTime.now.beginning_of_hour + 1.hour %><br>
   <%= f.label :end_time %><br>
   <%= f.datetime_select :end_time, :ampm => true, :min => DateTime.now, :default => DateTime.now.beginning_of_hour + 1.hour + 15.minutes %><br>

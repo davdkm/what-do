@@ -12,7 +12,8 @@
     location: Faker::Address.street_name,
     description: Faker::Hipster.paragraph(2, false, 2),
     start_time: event_start_time,
-    end_time: (event_start_time + rand(3600..7200))
+    end_time: (event_start_time + rand(3600..7200)),
+    time_zone: (["Hawaii", "Alaska", "Pacific Time (US & Canada)", "Arizona", "Mountain Time (US & Canada)", "Central Time (US & Canada)", "Eastern Time (US & Canada)"].sample)
     )
   Tag.create(
     name: Faker::Hipster.word
