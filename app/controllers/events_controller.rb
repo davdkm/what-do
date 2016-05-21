@@ -20,11 +20,12 @@ class EventsController < ApplicationController
   def create
     @event = current_user.events.build(event_params)
     @event.organizer = current_user
-    authorize @event
-    if @event.save
-      redirect_to event_path(@event)
-    else
-      render :new, flash: {error: 'Uh oh'}
+    if authorize @event
+      if @event.save
+        redirect_to event_path(@event)
+      else
+        render :new, flash: {error: 'Uh oh'}
+      end
     end
   end
 
