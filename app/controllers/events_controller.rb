@@ -18,10 +18,8 @@ class EventsController < ApplicationController
   end
 
   def create
-    binding.pry
     Time.zone = params[:event][:time_zone]
     @event = current_user.events.build(event_params)
-    binding.pry
     @event.organizer = current_user
     if authorize @event
       if @event.save
