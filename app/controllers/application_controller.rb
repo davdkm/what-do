@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   include Pundit
   before_action :authenticate_user!, except: [:show, :home, :index]
   before_filter :configure_permitted_parameters, if: :devise_controller?
+  around_filter :set_time_zone
 
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
@@ -18,6 +19,14 @@ class ApplicationController < ActionController::Base
     def user_not_authorized(exception)
       flash[:error] = "Access denied."
       redirect_to(request.referrer || root_path)
+    end
+
+    def set_time_zone
+      old_time_zone = Time.zone
+      Time.zone = current_user.time_zone if logged_in?
+      yield
+    ensure
+      Time.zone = old_time_zone
     end
 
   # allow params for name to be used when signing up and updating
