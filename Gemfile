@@ -40,6 +40,7 @@ gem 'dotenv-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'faker'
 
 group :development, :test do
   # Access an IRB console on exception pages or by using <%= console %> in views
@@ -56,7 +57,6 @@ group :development, :test do
   gem "pry"
   gem "guard-rspec", require: false
   gem "thin"
-  gem 'faker'
 end
 
 group :development do
