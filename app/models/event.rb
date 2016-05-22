@@ -11,11 +11,11 @@ class Event < ActiveRecord::Base
   validate :event_cannot_start_in_the_past, :event_cannot_end_before_start_time
 
   def start_time
-    super.in_time_zone(time_zone)
+    super.in_time_zone(time_zone) if time_zone
   end
 
   def end_time
-    super.in_time_zone(time_zone)
+    super.in_time_zone(time_zone) if time_zone
   end
 
   def self.sort_by_start_time
