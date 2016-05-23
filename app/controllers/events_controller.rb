@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
 
   def index
-    @events = Event.all.sort_by_start_time
+    @events = Event.all
   end
 
   def show

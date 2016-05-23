@@ -23,11 +23,11 @@ class Event < ActiveRecord::Base
   end
 
   def readable_start_time
-    self.start_time.localtime.strftime("%A, %d %b %Y %l:%M %p")
+    self.start_time.strftime("%A, %d %b %Y %l:%M %p")
   end
 
   def readable_end_time
-    self.end_time.localtime.strftime("%A, %d %b %Y %l:%M %p")
+    self.end_time.strftime("%A, %d %b %Y %l:%M %p")
   end
 
   def tags_attributes=(tag_attributes)

@@ -4,8 +4,11 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# gem 'sqlite3'
 # Use SCSS for stylesheets
+# Use postgres instead of sqlite to deploy on heroku
+gem 'pg'
+
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -37,6 +40,7 @@ gem 'dotenv-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'faker'
 
 group :development, :test do
   # Access an IRB console on exception pages or by using <%= console %> in views
@@ -53,7 +57,6 @@ group :development, :test do
   gem "pry"
   gem "guard-rspec", require: false
   gem "thin"
-  gem 'faker'
 end
 
 group :development do
