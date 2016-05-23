@@ -38,6 +38,7 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
+    Time.zone = @event.time_zone
     if authorize @event
       if @event.update(event_params)
         redirect_to event_path(@event)
