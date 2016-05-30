@@ -18,8 +18,8 @@ class Event < ActiveRecord::Base
     super.in_time_zone(time_zone) if time_zone
   end
 
-  def self.sort_by_start_time
-    self.order('start_time')
+  def self.sorted_by_start_time
+    self.all.order('start_time')
   end
 
   def readable_start_time

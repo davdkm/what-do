@@ -3,7 +3,11 @@
   <%= form_for [current_user, @new_comment] do |f| %>
     <%= f.label :content %>
     <%= f.text_field :content %>
-    <%= f.hidden_field :event_id, :value => @event.id if @event %>
+    <% if @event %>
+      <%= f.hidden_field :event_id, :value => @event.id %>
+    <% else %>
+      <%= f.collection_select :event_id, Event.all, :id, :name %>
+    <% end %>
     <%= f.submit "Comment!", class: 'button' %>
   <% end %>
 <% end %>
