@@ -4,16 +4,17 @@ This is a simple app that tracks events. Sign up for an account and then start t
 
 Check it out at http://wat-do-app.herokuapp.com/
 
-##Event Creation
+##Usage
+###Event Creation
 
 Visit the New Events link and enter the details of your event. Click Submit to create your event.
 
-##Add Comments
+###Add Comments
 
 Comment on any event by entering in a message and clicking the Comment button. Edit or remove your comments with the 'Edit' and 'X' buttons.
 
-#Contributing
-##Submitting changes
+##Contributing
+###Submitting changes
 
 Please send a [GitHub Pull Request to davdkm] (https://github.com/davdkm/wat-do/compare) with a clear list of what you've done (read more about [pull requests](http://help.github.com/pull-requests/)). When you send a pull request, including RSpec examples would be much appreciated. Please follow our coding conventions (below) and make sure all of your commits are atomic (one feature per commit).
 
