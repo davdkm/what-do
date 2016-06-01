@@ -12,27 +12,23 @@ Visit the New Events link and enter the details of your event. Click Submit to c
 
 Comment on any event by entering in a message and clicking the Comment button. Edit or remove your comments with the 'Edit' and 'X' buttons.
 
+#Contributing
+##Submitting changes
+
+Please send a [GitHub Pull Request to davdkm] (https://github.com/davdkm/wat-do/compare) with a clear list of what you've done (read more about [pull requests](http://help.github.com/pull-requests/)). When you send a pull request, including RSpec examples would be much appreciated. Please follow our coding conventions (below) and make sure all of your commits are atomic (one feature per commit).
+
+Always write a clear log message for your commits. One-line messages are fine for small changes, but bigger changes should look like this:
+
+$ git commit -m "A brief summary of the commit
+>
+> A paragraph describing what changed and its impact."
+Coding conventions
+
+Start reading our code and you'll get the hang of it. We optimize for readability:
+
+Indent using two spaces (soft tabs)
+Try to avoid logic in views, putting HTML generators into helpers
+Put spaces after list items and method parameters ([1, 2, 3], not [1,2,3]), around operators (x += 1, not x+=1), and around hash arrows.
+
 ##License
-Copyright (c) 2016, David Kim
-All rights reserved.
-
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met:
-
-* Redistributions of source code must retain the above copyright notice, this
-  list of conditions and the following disclaimer.
-
-* Redistributions in binary form must reproduce the above copyright notice,
-  this list of conditions and the following disclaimer in the documentation
-  and/or other materials provided with the distribution.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
-FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+This code is free to use under the terms of the MIT license. https://opensource.org/licenses/MIT
