@@ -8,8 +8,7 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
     @new_comment = @user.comments.new
     @comments = @user.comments
-    @schedules = Schedule.all
-    #s@transportations = Transportation.all
+    @schedules = @user.schedules
     session[:return_to] ||= request.referer
   end
 end

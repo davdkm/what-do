@@ -12,9 +12,19 @@ class SchedulesController < ApplicationController
     end
   end
 
+  def update
+    @schedule = Schedule.find(params[:id])
+    if @schedule.update(:transportation => params['schedule']['transportation'])
+      redirect_to user_path(@schedule.user), flash: {alert: 'Successfully changed your transportation method'}
+    else
+      redirect_to user_path(@schedule.user), flash: {alert: 'You are not authorized to do that'}
+    end
+  end
+
   def destroy
     @event = Event.find_by(id: params[:id])
     @event.users.delete(current_user)
     redirect_to event_path(@event), flash: {notice: 'You are no longer attending this event.'}
   end
+
 end

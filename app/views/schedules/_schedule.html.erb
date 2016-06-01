@@ -1,8 +1,7 @@
-<%= link_to schedule.event.name, event_path(schedule.event) %>
+<%= link_to schedule.event.name, event_path(schedule.event) %><%= ' | How you are getting there ' + schedule.transportation if schedule.transportation != '--' %>
 
 <%= form_for schedule do |f| %>
-  <%= f.hidden_field :event_id, :value => schedule.event.id %>
-  <%= f.hidden_field :user_id, :value => schedule.user.id %>
-  <%= f.select :transportation, Transportation::TYPE %>
-  <%= f.submit 'Transport' %>
+  <%= f.label :transportation %>
+  <%= f.select :transportation, Transportation::TYPE, :selected => schedule.match_transportation %>
+  <%= f.submit 'Transport', class: 'button' %>
 <% end %>
