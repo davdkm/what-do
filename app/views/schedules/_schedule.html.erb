@@ -1,0 +1,8 @@
+<%= link_to schedule.event.name, event_path(schedule.event) %>
+
+<%= form_for schedule do |f| %>
+  <%= f.hidden_field :event_id, :value => schedule.event.id %>
+  <%= f.hidden_field :user_id, :value => schedule.user.id %>
+  <%= f.select :transportation, Transportation::TYPE %>
+  <%= f.submit 'Transport' %>
+<% end %>

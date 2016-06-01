@@ -1,11 +1,6 @@
 <div class="right-info">
   <h3><%= current_user == @user ? "Hello, #{@user.name}!" : @user.name %></h3>
   <h4>Events currently scheduled to attend:</h4>
-  <ul>
-    <% @events.each do |event| %>
-      <li><%= link_to event.name, event_path(event) %>
-        <%= render 'schedules/form', locals: {event: event, user: @user} %></li>
-    <% end %>
-  </ul>
+  <%= render @schedules %>
 
 </div>
