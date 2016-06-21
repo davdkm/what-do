@@ -2,6 +2,7 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.sorted_by_start_time
+    render json: @events
   end
 
   def show
