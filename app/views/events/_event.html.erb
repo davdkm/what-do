@@ -1,11 +1,14 @@
-<div class="right-info">
+<div class="right-info" id="event-<%= event.id %>">
   <h4>
     <strong><%= link_to event.name, event_path(event) %> by <%= link_to event.organizer.name, user_path(event.organizer) %></strong>
   </h4>
   <p>
     <strong>Location:</strong> <%= event.location %>
   </p>
-  <p>
+  <div id="event-<%= event.id %>-detail">
+
+  </div>
+  <!-- <p>
     <strong>Begins:</strong> <%= event.readable_start_time %>
   </p>
   <p>
@@ -13,8 +16,9 @@
   </p>
   <p>
     <strong>Description:</strong> <%= event.description %>
-  </p>
+  </p> -->
+  <button class="js-more button" data-id="<%= event.id %>">More Info</button>
   <p>
-    <%= link_to 'Edit this event', edit_event_path(event), class: 'button' %>
+    <%= link_to 'Edit this event', edit_event_path(event), class: 'button' if user_signed_in? %>
   </p>
 </div>

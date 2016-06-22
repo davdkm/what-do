@@ -2,7 +2,10 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.sorted_by_start_time
-    render json: @events
+    respond_to do |format|
+      format.html
+      format.json { render json: @events }
+    end
   end
 
   def show
@@ -12,6 +15,10 @@ class EventsController < ApplicationController
     @comments = @event.comments
     @tags = @event.tags
     @event_tags = @event.tags
+    respond_to do |format|
+      format.html
+      format.json {render json: @event }
+    end
   end
 
   def new
