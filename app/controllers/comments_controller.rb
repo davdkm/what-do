@@ -6,6 +6,10 @@ class CommentsController < ApplicationController
 
   def show
     @comment = Comment.find_by(id: params[:id])
+    respond_to do |format|
+      format.html
+      format.json { render json: @comment }
+    end
   end
 
   def create

@@ -1,15 +1,12 @@
-$(document).ready(function() {
-  console.log('this is loading');
+$(document).on('page:change', function() {
   attachListeners();
 });
-
 
 var attachListeners = function() {
   eventDetail();
 }
 
 var eventDetail = function() {
-  console.log('eventDetail hit');
   $(".js-more").on("click", function() {
     var id = $(this).data("id");
     $.get("/events/" + id + ".json", function(event) {
