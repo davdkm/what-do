@@ -8,15 +8,7 @@
   <div id="event-<%= event.id %>-detail">
 
   </div>
-  <!-- <p>
-    <strong>Begins:</strong> <%= event.readable_start_time %>
-  </p>
-  <p>
-    <strong>Ends:</strong> <%= event.readable_end_time %>
-  </p>
-  <p>
-    <strong>Description:</strong> <%= event.description %>
-  </p> -->
+  
   <button class="js-more button" data-id="<%= event.id %>">More Info</button>
   <p>
     <%= link_to 'Edit this event', edit_event_path(event), class: 'button' if user_signed_in? %>

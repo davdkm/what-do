@@ -1,4 +1,4 @@
-<%= link_to schedule.event.name, event_path(schedule.event) %><%= ' | How you are getting there ' + schedule.transportation if schedule.transportation != '--' %>
+<%= link_to schedule.event.name, event_path(schedule.event) %><%= ' | How you are getting there ' + schedule.transportation if schedule.transportation && schedule.transportation != '--' %>
 
 <%= form_for schedule do |f| %>
   <%= f.label :transportation %>
