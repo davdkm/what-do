@@ -4,6 +4,7 @@ $(document).on('page:change', function() {
 
 var attachListeners = function() {
   eventDetail();
+  loadUsers();
 }
 
 var eventDetail = function() {
@@ -18,4 +19,17 @@ var eventDetail = function() {
     });
     $(this).remove();
   });
+}
+
+var loadUsers = function() {
+  $(".js-users").on("click", function() {
+    var id = $(this).data("id");
+    $.get("/events/" + id + ".json", function(event) {
+      var dom = '';
+      event.users.forEach(function(user) {
+        dom += "<a class='button' href='/users/" + user.id + "'>" + user.name + "</a> ";
+      });
+      $('#users').html(dom);
+    })
+  })
 }
