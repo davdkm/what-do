@@ -20,6 +20,14 @@ function Event(attributes) {
   this.readable_end_time = attributes.readable_end_time;
   this.tag_ids = attributes.tag_ids;
 }
+$(function(){
+  Event.templateSource = $("#event-template").html();
+  Event.template = Handlebars.compile(Event.templateSource);
+})
+
+Event.prototype.renderDiv = function () {
+  return Event.template(this)
+};
 
 $(function () {
   $("form#new_event").on("submit", function(e) {
@@ -35,8 +43,10 @@ $(function () {
     })
     .success(function(json) {
       console.log(json);
-      var newEvent = new Event(json)
-      console.log(newEvent);
+      var newEvent = new Event(json);
+      var newEventDiv = newEvent.renderDiv();
+      $(".right-info").removeClass('form');
+      $(".right-info").html(newEventDiv);
     })
     .error(function(response) {
       /* Act on the event */

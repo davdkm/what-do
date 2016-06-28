@@ -6,18 +6,12 @@
 
 </div>
 <script id="event-template" type="text/x-handlebars-template">
-  <div class="right-info" id="event-{{id}}">
   <h4>
     <strong><a href="/events/{{id}}">{{name}}</a> by <a href="/users/{{organizer.id}}">{{organizer.name}}</a></strong>
   </h4>
-  <p>
-    <strong>Location:</strong> {{location}}
-  </p>
-  <div id="event-{{id}}-detail"></div>
-
-
-  <p>
-    <a class="button" href="/events/{{id}}/edit">Edit this event</a>
-  </p>
-</div>
+  <p><strong>Location:</strong> {{location}}</p>
+  <p><strong>Begins:</strong> {{readable_start_time}}</p>
+  <p><strong>Ends: </strong> {{readable_end_time}}</p>
+  <p><strong>Description:</strong> {{description}}</p>
+  <p><a class="button" href="/events/{{id}}/edit">Edit this event</a></p>
 </script>
