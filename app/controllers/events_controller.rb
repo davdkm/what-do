@@ -49,9 +49,9 @@ class EventsController < ApplicationController
     Time.zone = @event.time_zone
     if authorize @event
       if @event.update(event_params)
-        redirect_to event_path(@event)
+        render json: @event
       else
-        render :edit
+        render :edit, flash: {error: 'Uh oh'}
       end
     end
   end

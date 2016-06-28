@@ -42,7 +42,6 @@ $(function () {
       data: params
     })
     .success(function(json) {
-      console.log(json);
       var newEvent = new Event(json);
       var newEventDiv = newEvent.renderDiv();
       $(".right-info").removeClass('form');
@@ -52,7 +51,31 @@ $(function () {
       /* Act on the event */
       console.log('yu broke it?', response);
     });
-    debugger;
+  })
+})
+
+$(function () {
+  $("form.edit_event").on("submit", function(e) {
+    e.preventDefault();
+    var $form = $(this);
+    var action = $form.attr("action");
+    var params = $form.serialize();
+    $.ajax({
+      url: action,
+      method: 'PATCH',
+      dataType: 'json',
+      data: params
+    })
+    .success(function(json) {
+      var editEvent = new Event(json);
+      var editEventDiv = editEvent.renderDiv();
+      $(".right-info").removeClass('form');
+      $(".right-info").html(editEventDiv);
+    })
+    .error(function(response) {
+      /* Act on the event */
+      console.log('you broke it', response);
+    });
   })
 })
 
