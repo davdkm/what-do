@@ -7,6 +7,32 @@ var attachListeners = function() {
   loadUsers();
 }
 
+$(function () {
+  $("form#new_event").on("submit", function(e) {
+    e.preventDefault();
+    var $form = $(this);
+    var action = $form.attr("action");
+    var params = $form.serialize();
+
+    $.ajax({
+      url: action,
+      method: 'POST',
+      dataType: 'json',
+      data: params}
+    })
+    .success(function(json) {
+      console.log(json);
+      // html = '';
+      // html += something;
+      // $(".event_show").append(html)
+    })
+    .error(function(response) {
+      /* Act on the event */
+      console.log('yu broke it?', response);
+    });
+  })
+})
+
 var eventDetail = function() {
   $(".js-more").on("click", function() {
     var id = $(this).data("id");

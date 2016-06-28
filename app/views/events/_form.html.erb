@@ -1,4 +1,6 @@
-<%= form_for @event do |f| %>
+
+
+<%= form_for(@event, remote: true) do |f| %>
   <%= f.label :name %><br>
   <%= f.text_field :name %><br>
   <%= f.label :location %><br>
@@ -21,6 +23,9 @@
   </p>
   <%= f.submit 'Submit', :class => 'button confirm' %>
 <% end %>
+<div class="hidden" id="event_show">
+
+</div>
 <p>
   <%= button_to "Cancel this Event", event_path(@event), :method => :delete, class: 'button cancel' if policy(@event).destroy? && @event.persisted? %></li>
 </p>

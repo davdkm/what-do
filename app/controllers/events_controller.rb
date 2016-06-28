@@ -31,7 +31,7 @@ class EventsController < ApplicationController
     @event.organizer = current_user
     if authorize @event
       if @event.save
-        redirect_to event_path(@event)
+        render json: @event
       else
         render :new, flash: {error: 'Uh oh'}
       end
