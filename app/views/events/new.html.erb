@@ -3,4 +3,21 @@
 <div class="right-info form">
   <h3>Create a new event</h3>
   <%= render 'form' %>
+
 </div>
+<script id="event-template" type="text/x-handlebars-template">
+  <div class="right-info" id="event-{{id}}">
+  <h4>
+    <strong><a href="/events/{{id}}">{{name}}</a> by <a href="/users/{{organizer.id}}">{{organizer.name}}</a></strong>
+  </h4>
+  <p>
+    <strong>Location:</strong> {{location}}
+  </p>
+  <div id="event-{{id}}-detail"></div>
+
+
+  <p>
+    <a class="button" href="/events/{{id}}/edit">Edit this event</a>
+  </p>
+</div>
+</script>

@@ -23,9 +23,6 @@
   </p>
   <%= f.submit 'Submit', :class => 'button confirm' %>
 <% end %>
-<div id="event_show">
-
-</div>
 <p>
   <%= button_to "Cancel this Event", event_path(@event), :method => :delete, class: 'button cancel' if policy(@event).destroy? && @event.persisted? %></li>
 </p>
