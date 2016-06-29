@@ -47,16 +47,20 @@ var newEventListener = function () {
       data: params
     })
     .success(function(json) {
-      var newEvent = new Event(json);
-      var newEventDiv = newEvent.renderDiv();
-      $(".right-info").removeClass('form');
-      $(".right-info").html(newEventDiv);
+      eventSuccess(json);
     })
     .error(function(response) {
       /* Act on the event */
       console.log('yu broke it?', response);
     });
   })
+}
+
+var eventSuccess = function(json) {
+  var event = new Event(json);
+  var eventDiv = event.renderDiv();
+  $(".right-info").removeClass('form');
+  $(".right-info").html(eventDiv);
 }
 
 var editEventListener = function () {
@@ -72,10 +76,7 @@ var editEventListener = function () {
       data: params
     })
     .success(function(json) {
-      var editEvent = new Event(json);
-      var editEventDiv = editEvent.renderDiv();
-      $(".right-info").removeClass('form');
-      $(".right-info").html(editEventDiv);
+      eventSuccess(json);
     })
     .error(function(response) {
       /* Act on the event */
