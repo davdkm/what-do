@@ -1,3 +1,10 @@
+$(document).ready(function() {
+  $(function(){
+    Event.templateSource = $("#event-template").html();
+    Event.template = Handlebars.compile(Event.templateSource);
+  })
+});
+
 $(document).on('page:change', function() {
   attachListeners();
 });
@@ -5,6 +12,8 @@ $(document).on('page:change', function() {
 var attachListeners = function() {
   eventDetail();
   loadUsers();
+  newEventListener();
+  editEventListener();
 }
 
 function Event(attributes) {
@@ -20,16 +29,12 @@ function Event(attributes) {
   this.readable_end_time = attributes.readable_end_time;
   this.tag_ids = attributes.tag_ids;
 }
-$(function(){
-  Event.templateSource = $("#event-template").html();
-  Event.template = Handlebars.compile(Event.templateSource);
-})
 
 Event.prototype.renderDiv = function () {
   return Event.template(this)
 };
 
-$(function () {
+var newEventListener = function () {
   $("form#new_event").on("submit", function(e) {
     e.preventDefault();
     var $form = $(this);
@@ -52,9 +57,9 @@ $(function () {
       console.log('yu broke it?', response);
     });
   })
-})
+}
 
-$(function () {
+var editEventListener = function () {
   $("form.edit_event").on("submit", function(e) {
     e.preventDefault();
     var $form = $(this);
@@ -77,7 +82,7 @@ $(function () {
       console.log('you broke it', response);
     });
   })
-})
+}
 
 var eventDetail = function() {
   $(".js-more").on("click", function() {
