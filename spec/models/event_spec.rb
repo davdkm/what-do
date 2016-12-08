@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Event, :type => :model do
   before(:each) do
-    @event = Event.first
-    @user = User.first
-    @user2 = User.second
-    @comment = Comment.first
+    @event = create(:event)
+    @user = create(:user)
+    @user2 = create(:user)
+    @comment = create(:comment)
   end
 
   it 'has a location' do
@@ -26,8 +26,8 @@ RSpec.describe Event, :type => :model do
   end
 
   it 'has many comments' do
-    @event.comments << Comment.first
-    expect(@event.comments).to include(Comment.first)
+    @event.comments << @comment
+    expect(@event.comments).to include(@comment)
   end
 
 end
