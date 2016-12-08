@@ -30,4 +30,42 @@ RSpec.describe Event, :type => :model do
     expect(@event.comments).to include(@comment)
   end
 
+  describe '# Valid times' do
+
+    it 'has a valid start and end time' do
+      @event.start_time = '2020-01-31 10:00:00 -0800'
+      @event.end_time = '2020-01-31 23:00:00 -0800'
+
+      expect(@event.valid?).to be true
+      expect(@event.readable_start_time).to include('31 Jan 2020 10:00 AM')
+      expect(@event.readable_end_time).to include('31 Jan 2020 11:00 PM')
+    end
+
+    it 'can not start in the past' do
+      @event.start_time = '2000-01-31 10:00:00 -0800'
+
+      expect(@event.valid?).to be_falsey
+    end
+
+    it 'can not end in the past' do
+      @event.end_time = '2000-01-31 10:00:00 -0800'
+
+      expect(@event.valid?).to be_falsey
+    end
+
+    it 'can not start before it ends' do
+      @event.start_time = '2020-01-31 23:00:00 -0800'
+      @event.end_time = '2020-01-31 10:00:00 -0800'
+
+      expect(@event.valid?).to be_falsey
+    end
+
+    it 'has to have a duration' do
+      @event.start_time = '2020-01-31 10:00:00 -0800'
+      @event.end_time = '2020-01-31 10:00:00 -0800'
+
+      expect(@event.valid?).to be_falsey
+    end
+
+  end
 end
