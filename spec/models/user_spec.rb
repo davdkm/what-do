@@ -33,13 +33,25 @@ RSpec.describe User, type: :model do
       expect(@user.comments.first.content).to eq('SWAG')
     end
 
-    it 'can attend an event' do
-      @new_user = create(:user, name: 'Brian', email: 'brian@email.com')
-      @schedule = Schedule.create(user: @new_user, event: @event)
+    describe '# Events' do
+      before(:each) do
+        @new_user = create(:user, name: 'Brian', email: 'brian@email.com')
+        @schedule = Schedule.create(user: @new_user, event: @event)
+      end
 
-      expect(@event.users.size).to eq(1)
-      expect(@event.users.first.name).to eq('Brian')
-      expect(@new_user.events.first).to be_kind_of(Event)
+      it 'can attend an event' do
+
+        expect(@event.users.size).to eq(1)
+        expect(@event.users.first.name).to eq('Brian')
+        expect(@new_user.events.first).to be_kind_of(Event)
+      end
+
+      it 'cannot attend the same event twice' do
+        @new_schedule = Schedule.create(user: @new_user, event: @event)
+
+        expect(@event.users.size).to eq(1)
+      end
+
     end
   end
 
