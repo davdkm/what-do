@@ -8,7 +8,8 @@ class Event < ActiveRecord::Base
   accepts_nested_attributes_for :tags
 
   validates_presence_of :description, :name, :location, :start_time, :end_time
-  validate :event_cannot_start_in_the_past, :event_cannot_end_before_start_time
+  # validate :event_cannot_start_in_the_past, :event_cannot_end_before_start_time
+  validate :has_valid_times
 
   def start_time
     super.in_time_zone(time_zone) if time_zone
@@ -35,6 +36,16 @@ class Event < ActiveRecord::Base
       tag = Tag.find_or_create_by(tag_attribute) if tag_attribute[:name].present?
       self.tags << tag if tag
     end
+  end
+
+  def has_valid_times
+    event_cannot_start_in_the_past
+    event_cannot_end_before_start_time
+    event_has_duration
+  end
+
+  def event_has_duration
+    errors.add(:end_time, "Event has to have a duration") if start_time == end_time
   end
 
   def event_cannot_start_in_the_past
