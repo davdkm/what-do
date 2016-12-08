@@ -13,7 +13,6 @@ class User < ActiveRecord::Base
   validates :name, presence: true
   validates :email, uniqueness: true
 
-
   enum role: [:normal, :moderator, :admin]
 
   def self.from_omniauth(auth)
