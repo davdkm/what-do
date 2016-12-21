@@ -5,6 +5,11 @@ class ApplicationController < ActionController::Base
   include Pundit
   before_action :authenticate_user!, except: [:show, :home, :index]
   before_filter :configure_permitted_parameters, if: :devise_controller?
+  skip_before_filter :verify_authenticity_token, if: :json_request?
+
+  def json_request?
+    request.format.json?
+  end
 
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
