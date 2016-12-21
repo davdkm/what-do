@@ -1,4 +1,8 @@
 <div class="card panel-group col-sm-6" id="event-<%= event.id %>">
+  <div class="pull-right">
+    <!-- <button class="js-more button" data-id="<%= event.id %>">More Info</button> -->
+    <%= link_to 'Edit', edit_event_path(event), class: 'button btn-overlay' if user_signed_in? && event.organizer == current_user %>
+  </div>
   <div class="panel panel-default">
     <div class="panel-heading">
       <div class="card_photo">
