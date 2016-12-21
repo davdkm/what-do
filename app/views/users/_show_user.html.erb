@@ -1,4 +1,4 @@
-<div class="right-info">
+<div class="card card-event">
   <h3><%= current_user == @user ? "Hello, #{@user.name}!" : @user.name %></h3>
   <h4>Events currently scheduled to attend:</h4>
   <%= render @schedules %>
