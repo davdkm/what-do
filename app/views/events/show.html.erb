@@ -1,23 +1,41 @@
-<%= render @event %>
+<div class="row">
+    <%= render @event %>
 
-<div class="right-info">
-  <h4><%= 'Attender'.pluralize(@users.count) %> of this Event:</h4>
+  <div class="panel-group col-sm-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4><%= 'Attender'.pluralize(@users.count) %> of this Event:</h4>
+      </div>
 
-  <div id="users">
-    <button class="js-users button" data-id="<%= @event.id %>">Who's Going?</button>
+      <div class="panel-body">
+        <div class="card card-event">
+          <div id="users">
+            <button class="js-users button" data-id="<%= @event.id %>">Who's Going?</button>
+          </div>
+
+          <p>
+            <% if user_signed_in? %>
+              <%= form_tag schedules_path, method: 'POST' do %>
+                <%= hidden_field_tag :user_id, current_user.id %>
+                <%= hidden_field_tag :event_id, @event.id %>
+                <%= submit_tag "Go to this event", class: 'button confirm' %>
+              <% end %>
+              <%=  button_to "Not going anymore", {:controller => :schedules, :action => 'destroy', :id => @event.id}, :method => :delete, class: 'button cancel' unless @users.nil? %>
+            <% end %>
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <p>
-    <% if user_signed_in? %>
-      <%= form_tag schedules_path, method: 'POST' do %>
-        <%= hidden_field_tag :user_id, current_user.id %>
-        <%= hidden_field_tag :event_id, @event.id %>
-        <%= submit_tag "Go to this event", class: 'button confirm' %>
-      <% end %>
-      <%=  button_to "Not going anymore", {:controller => :schedules, :action => 'destroy', :id => @event.id}, :method => :delete, class: 'button cancel' unless @users.nil? %>
-    <% end %>
-  </p>
+  <div class="panel-group col-sm-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Comments
+      </div>
+      <div class="panel-body">
+        <%= render 'comments/comments' %>
+        <%= render 'tags/tags' %>
+      </div>
+    </div>
+  </div>
 </div>
-
-<%= render 'comments/comments' %>
-<%= render 'tags/tags' %>
