@@ -43,27 +43,34 @@
      padding: 20px;
  }
 
- .right-info {
-     margin: 5px;
-     float: left;
-     position: relative;
-     height: 325px;
-     width: 550px;
-     background-color: #EEEEEE;
-     text-align: center;
-     padding: 40px 20px 20px 20px;
-     border-radius: 7px;
- }
+// event panel
+.card .panel-heading {
+  height: 180px;
+}
+.card .panel-body {
+  height: 200px;
+  overflow: hidden;
+}
 
- .right-info-relative {
-     margin: 5px;
-     float: left;
-     width: 550px;
-     background-color: #EEEEEE;
-     text-align: center;
-     padding: 40px 60px 20px 60px;
-     border-radius: 7px;
- }
+// event img
+img {
+  vertical-align: middle;
+}
+.card_photo {
+  max-height: 100%;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid #ccc;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+.card_photo_placeholder {
+  background-image: image-url("image-placeholder.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 180px;
+}
 
  .button {
     background-color: #555555;
