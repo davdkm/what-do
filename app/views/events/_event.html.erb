@@ -1,16 +1,28 @@
-<div class="right-info" id="event-<%= event.id %>">
-  <h4>
-    <strong><%= link_to event.name, event_path(event) %> by <%= link_to event.organizer.name, user_path(event.organizer) %></strong>
-  </h4>
-  <p>
-    <strong>Location:</strong> <%= event.location %>
-  </p>
-  <div id="event-<%= event.id %>-detail">
+<div class="card panel-group col-sm-6" id="event-<%= event.id %>">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="card_photo">
+        <a href="#">
+          <!-- todo add event photo -->
+          <div class="card_photo_placeholder">
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="panel-body">
+      <h4>
+        <strong><%= link_to event.name, event_path(event) %> by <%= link_to event.organizer.name, user_path(event.organizer) %></strong>
+      </h4>
 
+      <p>
+        <strong>Location:</strong> <%= event.location %>
+      </p>
+
+      <div id="event-<%= event.id %>-detail">
+        <p><%= event.readable_start_time %> to <%= event.readable_end_time %></p>
+        <span><%= event.description %></span>
+      </div>
+
+    </div>
   </div>
-  
-  <button class="js-more button" data-id="<%= event.id %>">More Info</button>
-  <p>
-    <%= link_to 'Edit this event', edit_event_path(event), class: 'button' if user_signed_in? %>
-  </p>
 </div>
