@@ -1,2 +1,24 @@
-<h4>Here's what people are doing:</h4>
-<%= render @events %>
+<h4>Browse Events</h4>
+
+  <div class="row">
+
+    <div class="col-sm-9">
+      <div class="row">
+        <%= render @events %>
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+        <div class="panel-group">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              Advertisements
+            </div>
+            <div class="panel-body">
+              Space for Ads
+            </div>
+          </div>
+        </div>
+    </div>
+
+  </div>
