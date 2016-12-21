@@ -1,10 +1,18 @@
 <%= render 'messages' %>
 
-<div class="card card-event form">
-  <h3>Edit this event</h3>
-  <%= render 'form' %>
-</div>
-
+<div class="row">
+  <div class="panel-group col-sm-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3>Edit this event</h3>
+      </div>
+      <div class="panel-body">
+        <div class="card card-event form">
+          <%= render 'form' %>
+        </div>
+      </div>
+    </div>
+  </div>
 <!-- <script id="event-template" type="text/x-handlebars-template">
   <h4>
     <strong><a href="/events/{{id}}">{{name}}</a> by <a href="/users/{{organizer.id}}">{{organizer.name}}</a></strong>
