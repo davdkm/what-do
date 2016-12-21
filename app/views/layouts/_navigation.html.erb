@@ -12,15 +12,19 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <% if current_user.present? %>
-          <li><%= link_to "Hello, #{current_user.name}!", user_path(current_user) %></li>
           <li><%= link_to 'New Event', new_event_path %></li>
+        <% end %>
+
+        <li><%= link_to 'Tags', tags_path %></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_user.present? %>
+          <li><%= link_to "Hello, #{current_user.name}!", user_path(current_user) %></li>
           <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
         <% else %>
           <li><%= link_to 'Sign Up', new_user_registration_path %></li>
           <li><%= link_to 'Sign In', new_user_session_path %></li>
         <% end %>
-
-        <li><%= link_to 'Tags', tags_path %></li>
       </ul>
     </div>
   </div>
