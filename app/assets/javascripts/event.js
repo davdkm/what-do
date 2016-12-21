@@ -10,7 +10,7 @@ $(document).on('page:change', function() {
 });
 
 var attachListeners = function() {
-  eventDetail();
+  // eventDetail();
   loadUsers();
   newEventListener();
   editEventListener();
@@ -58,9 +58,10 @@ var newEventListener = function () {
 
 var eventSuccess = function(json) {
   var event = new Event(json);
-  var eventDiv = event.renderDiv();
-  $(".right-info").removeClass('form');
-  $(".right-info").html(eventDiv);
+  // var eventDiv = event.renderDiv();
+  window.location.replace("/events/" + event.id);
+  // $(".card card-event").removeClass('form');
+  // $(".card card-event").html(eventDiv);
 }
 
 var editEventListener = function () {
@@ -85,19 +86,19 @@ var editEventListener = function () {
   })
 }
 
-var eventDetail = function() {
-  $(".js-more").on("click", function() {
-    var id = $(this).data("id");
-    $.get("/events/" + id + ".json", function(event) {
-      var dom = '';
-      dom += "<p><strong>Begins:</strong> " + event.readable_start_time + "</p>";
-      dom += "<p><strong>Ends: </strong> " + event.readable_end_time + "</p>";
-      dom += "<p><strong>Description:</strong> " + event.description + "</p>";
-      $("#event-" + id + "-detail").html(dom);
-    });
-    $(this).remove();
-  });
-}
+// var eventDetail = function() {
+//   $(".js-more").on("click", function() {
+//     var id = $(this).data("id");
+//     $.get("/events/" + id + ".json", function(event) {
+//       var dom = '';
+//       dom += "<p><strong>Begins:</strong> " + event.readable_start_time + "</p>";
+//       dom += "<p><strong>Ends: </strong> " + event.readable_end_time + "</p>";
+//       dom += "<p><strong>Description:</strong> " + event.description + "</p>";
+//       $("#event-" + id + "-detail").html(dom);
+//     });
+//     $(this).remove();
+//   });
+// }
 
 var loadUsers = function() {
   $(".js-users").on("click", function() {
