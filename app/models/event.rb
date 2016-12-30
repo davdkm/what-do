@@ -6,7 +6,10 @@ class Event < ActiveRecord::Base
   has_many :event_tags
   has_many :tags, through: :event_tags
   accepts_nested_attributes_for :tags
-
+  has_attached_file :cover_image, default_url: ':style/image-placeholder.jpg', styles: { thumb: "200x200>" }
+  validates_attachment_content_type :cover_image, content_type: /\Aimage\/.*z/
+  validates_attachment_file_name :cover_image, matches: [/png\z/, /jpe?g\z/ ]
+  do_not_validate_attachment_file_type :cover_image
   validates_presence_of :description, :name, :location, :start_time, :end_time
   # validate :event_cannot_start_in_the_past, :event_cannot_end_before_start_time
   validate :has_valid_times
