@@ -1,4 +1,4 @@
-<div class="card panel-group col-sm-6" id="event-<%= event.id %>">
+<div class="card panel-group <%= col %>" id="event-<%= event.id %>">
   <div class="pull-right">
     <!-- <button class="js-more button" data-id="<%= event.id %>">More Info</button> -->
     <%= link_to 'Edit', edit_event_path(event), class: 'button btn-overlay' if user_signed_in? && event.organizer == current_user %>
@@ -8,7 +8,7 @@
       <div class="card_photo">
         <a href="#">
           <!-- todo add event photo -->
-          <div class="card_photo_placeholder">
+          <div class="card_photo_image">
           </div>
         </a>
       </div>

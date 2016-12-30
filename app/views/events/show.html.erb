@@ -1,7 +1,7 @@
 <div class="row">
-    <%= render @event %>
+    <%= render @event, col: 'col-sm-8' %>
 
-  <div class="panel-group col-sm-6">
+  <div class="panel-group col-sm-4">
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4><%= 'Attender'.pluralize(@users.count) %> of this Event:</h4>
@@ -27,7 +27,7 @@
       </div>
     </div>
   </div>
-  <div class="panel-group col-sm-6">
+  <div class="panel-group col-sm-8">
     <div class="panel panel-default">
       <div class="panel-heading">
         Comments
