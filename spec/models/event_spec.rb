@@ -67,5 +67,17 @@ RSpec.describe Event, :type => :model do
       expect(@event.valid?).to be_falsey
     end
 
+    context "with a picture" do
+      it "has a :thumb style" do
+
+      expect(@event.cover_image.styles[:thumb]).to_not eq nil
+      end
+
+      it "has a default" do
+
+        expect(@event.cover_image.url).to_not eq /image-placeholder.jpg/
+      end
+    end
+
   end
 end
