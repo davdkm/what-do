@@ -1,8 +1,8 @@
-#wat-do
+#what-do
 
 This is a simple app that tracks events. Sign up for an account and then start tracking your events and other's events that you'd like to attend.
 
-Check it out at http://wat-do-app.herokuapp.com/
+Check it out at http://what-do-app.herokuapp.com/
 
 ##Usage
 ###Event Creation
@@ -16,7 +16,7 @@ Comment on any event by entering in a message and clicking the Comment button. E
 ##Contributing
 ###Submitting changes
 
-Please send a [GitHub Pull Request to davdkm] (https://github.com/davdkm/wat-do/compare) with a clear list of what you've done (read more about [pull requests](http://help.github.com/pull-requests/)). When you send a pull request, including RSpec examples would be much appreciated. Please follow our coding conventions (below) and make sure all of your commits are atomic (one feature per commit).
+Please send a [GitHub Pull Request to davdkm] (https://github.com/davdkm/what-do/compare) with a clear list of what you've done (read more about [pull requests](http://help.github.com/pull-requests/)). When you send a pull request, including RSpec examples would be much appreciated. Please follow our coding conventions (below) and make sure all of your commits are atomic (one feature per commit).
 
 Always write a clear log message for your commits. One-line messages are fine for small changes, but bigger changes should look like this:
 
